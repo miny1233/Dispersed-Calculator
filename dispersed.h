@@ -11,3 +11,4 @@ void operation(int len, char input[]);
 int  recursive_computation(char* exp, int len);
 void delect_space(char* expression, int* len);
 int not_formatted(char* context, int len);
+void value_list(char* exp, int len);

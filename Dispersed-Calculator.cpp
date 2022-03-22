@@ -20,6 +20,7 @@ int main() {
 			recursive_computation(input, len);
 			len = strlen(input);
 		}
+		//value_list(input, len);
 		printf("%s\n", input);
 	}
 	return 0;
