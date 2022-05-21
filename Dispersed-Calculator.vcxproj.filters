@@ -21,9 +21,18 @@
     <ClCompile Include="dispersed.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="des.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="power_set.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dispersed.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="power_set.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -194,4 +194,11 @@ void value_list(char* exp, int len) {
 		printf("%s\n", exp);
 	}
 }
+void calculate(char input[], int len) {
+	while (len != 1)
+	{
+		recursive_computation(input, len);
+		len = strlen(input);
+	}
+}
 

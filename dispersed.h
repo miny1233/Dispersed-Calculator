@@ -7,6 +7,7 @@
 #define TRUE 't'
 #define FALSE 'f'
 #define SPACE ' ' 
+void calculate(char input[], int len);
 void operation(int len, char input[]);
 int  recursive_computation(char* exp, int len);
 void delect_space(char* expression, int* len);
