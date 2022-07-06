@@ -159,26 +159,29 @@ void value_list(char* exp, int len) {
 	memset(propositional_formula, 0, 8);
 	delect_space(exp, &len);
 	int o_size = 0;
-	for (int i = 0; i < len; i++) {
-		for (int p = 0; p < sizeof(op); p++) {
+    for (int i = 0; i < len; i++) {
+	check_f:for (int p = 0; p < sizeof(op); p++) {
 			if (exp[i] == op[p]) {
-				continue;
+				i++;
+				goto check_f;
 			}
 		}
 		if (o_size<8) {
 			for (int p = 0; p < o_size; p++) {
 				if (exp[i] == propositional_formula[p]) {
-					continue;
+					i++;
+					goto check_f;
 				}
 			}
 			propositional_formula[o_size++] = exp[i];
 		}
 	}
 	int round = 0;
+	char* _exp = (char*)malloc(len);
 	for (; round < pow(2, o_size); round++) {
 		for (int i = 0; i < o_size; i++) {
 			int x = 1;
-			x << i;
+			x <<= i;
 			if (x & round) {
 				for (int l = 0; l < len; l++)if (exp[l] == propositional_formula[i])exp[l] = TRUE;
 			}
@@ -186,12 +189,14 @@ void value_list(char* exp, int len) {
 				for (int l = 0; l < len; l++)if (exp[l] == propositional_formula[i])exp[l] = FALSE;
 			}
 		}
-		while (len != 1)
+		memcpy(_exp, exp, len);
+		int _len = strlen(_exp);
+		while (_len != 1)
 		{
-			recursive_computation(exp, len);
-			len = strlen(exp);
+			recursive_computation(_exp, _len);
+			_len = strlen(_exp);
 		}
-		printf("%s\n", exp);
+		printf("%s\n", _exp);
 	}
 }
 void calculate(char input[], int len) {
